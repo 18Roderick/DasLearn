@@ -1,0 +1,169 @@
+[
+  {
+    "titulo":  "fase 1",
+    "descripcion": "unidad 1 de daslearn",
+    "preguntas":[
+      {
+        "pregunta": "¿Qué es una metodologia ágil?",
+        "respuestas":[
+          {
+            "opcion": "Metodología que permite adaptar la forma de trabajo al contexto y naturaleza de un proyecto.",
+            "correcta": true
+          },
+
+          {
+            "opcion": "Metodologia que permite adaptar el desarrollo del proyecto a la forma de trabajo.",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Metodología que permite adaptar el desarrollo del proyecto a las peticiones del cliente.",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Metodología que permite la continua interacción cliente - desarrollador.",
+            "correcta": false
+          }
+        ]
+      },
+
+      {
+        "pregunta": "Pilares fundamentales de las metodologías ágiles:",
+        "respuestas":[
+          {
+            "opcion": "Trabajo colaborativo y en equipo",
+            "correcta": true
+          },
+
+          {
+            "opcion": "Comunicación continua con el cliente",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Desarrollo basado en iteraciones y contrucción de prototipos",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Satisfacción de los requerimientos y necesidades del cliente",
+            "correcta": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "titulo":  "fase 2",
+    "descripcion": "unidad 2 de daslearn",
+    "preguntas":[
+      {
+        "pregunta": "¿Cuál es la metodología ágil que exponemos en este sitio?",
+        "respuestas":[
+          {
+            "opcion": "Desarrollo Adaptativo de Software",
+            "correcta": true
+          },
+
+          {
+            "opcion": "Kanban",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Programación Extrema",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Scrum",
+            "correcta": false
+          }
+        ]
+      },
+
+      {
+        "pregunta": "¿Quién propuso la metodología DAS?",
+        "respuestas":[
+          {
+            "opcion": "Jim Highsmith y Sam Bayer",
+            "correcta": true
+          },
+
+          {
+            "opcion": "Jeff Sutherland",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Taiichi Ohno",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Walter Shewhart",
+            "correcta": false
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "titulo":  "fase 3",
+    "descripcion": "unidad 3 de daslearn",
+    "preguntas":[
+      {
+        "pregunta": "¿Cuántas fases tiene el ciclo de vida DAS?",
+        "respuestas":[
+          {
+            "opcion": "3 fases",
+            "correcta": true
+          },
+
+          {
+            "opcion": "5 fases",
+            "correcta": false
+          },
+
+          {
+            "opcion": "7 fases",
+            "correcta": false
+          },
+
+          {
+            "opcion": "4 fases",
+            "correcta": false
+          }
+        ]
+      },
+
+      {
+        "pregunta": "Fases de DAS",
+        "respuestas": [
+          {
+            "opcion": "Especulación, Colaboración, Aprendizaje.",
+            "correcta": true
+          },
+
+          {
+            "opcion": "Requerimientos, Diseño, Desarrollo, Validación.",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Especulación, Colaboración, Validación.",
+            "correcta": false
+          },
+
+          {
+            "opcion": "Exploración, Colaboración, Producción",
+            "correcta": false
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "name": "server-game",
+  "version": "1.0.0",
+  "description": "juego de metodologias",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "sequelize",
+    "express",
+    "graphql"
+  ],
+  "author": "Roderick Romero <rjrr507@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server-express": "^2.0.0",
+    "express": "^4.16.3",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^3.0.5",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.38.0",
+    "uuid": "^3.3.2"
+  }
+}
