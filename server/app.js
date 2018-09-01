@@ -1,14 +1,35 @@
-const express = require('express');
+const express = require('express')
 
-const uuidv4 = require('uuid/v4');
+const morgan = require('morgan')
+
+const compression = require('compression')
+
+const helmet = require('helmet')
+
+const uuidv4 = require('uuid/v4')
 
 
-const models = require('./models/index');
+const apiRoute = require('./api')
+
+const indexRoute = require('./routes')
+
+const app = express()
+
+const port = process.env.PORT || 3000
+
+app.set('port', port)
+
+app.use(helmet())
+
+app.use(compression())
+
+app.use(morgan('tiny'))
+
+app.use('/', indexRoute)
+
+app.use('/api', apiRoute)
 
 
-const app = express();
-
-
-app.listen(3000, () => {
-  console.log(`🚀 Server ready at http://localhost:3000`);
+app.listen(port, () => {	
+	console.log(`🚀 Server ready at http://localhost:${app.get('port')}`)  
 })

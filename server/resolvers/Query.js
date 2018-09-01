@@ -5,6 +5,7 @@ const models = require('../models');
 async function getAll(root, args) {
 
   const data = await models.Modulos.findAll({
+    attributes: ['id', 'titulo', 'descripcion'],
     include: [{
       model: models.Preguntas,
       as: 'preguntas',
@@ -29,7 +30,7 @@ async function getRanking(root, args) {
         as: 'usuario',
       }]
     })
-    console.log(data[0].dataValues)
+    //console.log(data[0].dataValues)
     return data;
   } catch (error) {
     console.log(error)
