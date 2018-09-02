@@ -1,0 +1,24 @@
+[{
+    "name": "inicio",
+    "route": "/",
+    "type": "public"
+  },
+
+  {
+    "name": "jugar",
+    "route": "/jugar",
+    "type": "private"
+  },
+
+  {
+    "name": "ranking",
+    "route": "/ranking",
+    "type": "private"
+  }, 
+
+  {
+    "name": "tutorial",
+    "route": "/tutorial",
+    "type": "private"
+  }
+]
