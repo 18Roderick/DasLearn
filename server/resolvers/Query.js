@@ -2,38 +2,34 @@ const models = require('../models');
 
 
 
-async function getAll(root, args) {
+async function getAll(limit = 10) {
 
   const data = await models.Modulos.findAll({
     attributes: ['id', 'titulo', 'descripcion'],
-    include: [{
-      model: models.Preguntas,
-      as: 'preguntas',
-      attributes: ['id', 'pregunta'],
-      include: [{
-        model: models.Respuestas,
-        as: 'respuestas',
-        attributes: ['id', 'opcion', 'correcta'],
-      }]
-    }]
+    limit
   });
 
   return data;
 
 }
 
-async function getRanking(root, args) {
+async function getRanking(limit = 10) {
   try {
     const data = await models.Ranking.findAll({
+      order: models.sequelize.fn('max', models.sequelize.col('puntaje')),
+      limit,
+      attributes:['id', 'puntaje'],
       include:[{
         model: models.Usuario,
         as: 'usuario',
+        attributes:['id', 'nombre', 'email']
       }]
     })
-    //console.log(data[0].dataValues)
+
     return data;
   } catch (error) {
     console.log(error)
+    throw error;
   }
 }
 
