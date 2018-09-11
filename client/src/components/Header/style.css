@@ -1,0 +1,27 @@
+.header-main{
+  background-color: black;
+  height: 50px;
+  
+}
+
+
+.header-main a{
+  color: rgb(255, 255,255);
+  text-decoration: none;
+  line-height: 50px;
+  padding: 5px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.header-main a:hover{
+  cursor: pointer;
+  color: greenyellow;
+}
+
+.left-nav{
+  float: right;
+  background-color: brown;
+  width: 100px;
+}

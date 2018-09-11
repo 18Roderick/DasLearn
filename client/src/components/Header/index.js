@@ -1,15 +1,22 @@
 import React, { Component } from 'react';
+
 import { Link } from 'react-router-dom';
 
+
+import './style.css';
 
 class Header extends Component {
    render() {
      return (
-       <div>
-         <div className='header-links' > <Link to='/'> Inicio </Link> </div>
-         <div className='header-links' > <Link to='/jugar'> Jugar </Link> </div>
-         <div className='header-links'> <Link to='/tutorial'> Tutorial </Link> </div>
-         <div className='header-links' > <Link to='/ranking'> Ranking </Link> </div>
+       <div className="header-main">
+         <Link to='/'> Inicio</Link>
+         <Link to='/temas'>  Temas </Link>
+         <Link to='/jugar'>  Jugar  </Link>
+         <Link to='/tutorial'>  Tutorial   </Link>
+         <Link to='/ranking'>  Ranking  </Link>
+         <div className="left-nav">
+           <Link to=''> Login </Link>
+         </div>
        </div>
      );
    }
