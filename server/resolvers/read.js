@@ -38,12 +38,15 @@ async function getPreguntas(idModulo, limit = 5){
 async function getRespuestas(idPregunta){
   try {
       if(idPregunta){
-        return await models.Respuestas.findAll({
+        const data = await models.Respuestas.findAll({
           where:{
-            PreguntasId: idPregunta
+            PreguntaId: idPregunta
           },
           attributes: ['id', 'opcion', 'correcta']
         })
+
+        return data
+        
       } else {
         return new Error('Parama missing')
       }

@@ -1,7 +1,7 @@
 const Query = require('./read');
 
 
-Query.getPreguntas('16abaa6f-b175-4030-b867-24959405742b', 5)
+Query.getRespuestas('862ea389-8344-49a5-b101-6d3376f7f05e')
   .then( data => {
     console.log(data)
   })

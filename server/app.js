@@ -37,11 +37,9 @@ app.use(helmet())
 
 app.use(compression())
 
-app.use(bodyParser.urlencoded({ extended: false }))
+//app.use(bodyParser.json())
 
-// parse application/json
-app.use(bodyParser.json())
-
+//app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/', indexRoute)
 

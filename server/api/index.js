@@ -3,6 +3,9 @@ const express = require('express');
 const MerrorModule = require('express-merror');
 
 
+const bodyJson = require('body-parser').json()
+
+
 const Read = require('../resolvers/read');
 
 const Merror = MerrorModule.Merror;
@@ -19,10 +22,16 @@ router.get('/', (req, res, next) => {
     })
 
     .catch( err => {
-      return next(new Merror(401, "Data not available", {code: 1001,status: "REFRESH_TOKEN"} ));
+      return next(new Merror(401, "Data not available", {code: 1001,message:"try next time"} ));
     })
 })
 
+
+router.get('/test', bodyJson, (req, res, next ) => {
+  let data = req.params.body || 'no data disponible';
+  console.log( req.params )
+  res.send(data);
+})
 
 router.get('/modulos', (req, res, next ) => {
    let data = {}
@@ -33,7 +42,7 @@ router.get('/modulos', (req, res, next ) => {
       })
 
       .catch( err => {
-        return next(new Merror(401, "Data not available", {code: 1001,status: "REFRESH_TOKEN"} ));
+        return next(new Merror(500, "Data not available", {code: 1001,status: "REFRESH_TOKEN"} ));
       })
 })
 
@@ -50,11 +59,11 @@ router.get('/modulos/preguntas/:id', (req, res, next) =>{
     })
   
     .catch( err => {
-      return next(new Merror(401, "Data not available", {code: 1001,status: "REFRESH_TOKEN"} ));
+      return next(new Merror(204, "Data not available", {status: "no content "} ));
     })
 
   }else{
-    return next(new Merror(401, "id module missing", {code: 1001,message: "id parama missing"} ));
+    return next(new Merror(400, "id module missing", {message: "id parama missing"} ));
   }
 
 })
@@ -63,9 +72,16 @@ router.get('/modulos/preguntas/:id', (req, res, next) =>{
 router.get('/modulos/preguntas/respuestas/:id', (req, res, next ) => {
 
   if( req.params.id ){
+      Read.getRespuestas(req.params.id)
+      .then( data => {
+        res.json(data)
+      })
 
+      .catch( err => {
+        return next(new Merror(204, "Data not available", {status: "no content "} ));
+      })
   } else {
-
+    return next(new Merror(400, 'id missing', { message: "some params missing id "}))
   }
 
 })
