@@ -20,7 +20,7 @@ passport.use(new GoogleStrategy({
         defaults: { nombre: userInfo.displayName ,
             password: '123456x-s-sawsa' }})
         .then( (user) => {
-           
+    
            user[0].createRanking({puntaje:0})
             .then( ranking => {
                 console.log(ranking)
