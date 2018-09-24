@@ -37,7 +37,7 @@ async function main(){
 
     console.log(`Conexion exitosa a la basee de datos, Tablas sincrnoizadas`)
 
-    await createTester();
+    //await createTester();
 
     for( const datos of data){
       //console.log(datos.titulo);

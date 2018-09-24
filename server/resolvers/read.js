@@ -87,7 +87,7 @@ async function getRanking(limit = 10) {
       include:[{
         model: models.Usuario,
         as: 'usuario',
-        attributes:['id', 'nombre', 'email']
+        attributes:['nombre']
       }]
     })
 

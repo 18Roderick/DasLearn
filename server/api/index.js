@@ -3,14 +3,23 @@ const express = require('express');
 const MerrorModule = require('express-merror');
 
 
-const bodyJson = require('body-parser').json()
-
-
 const Read = require('../resolvers/read');
+
+const Create = require('../resolvers/create')
+
+const token = require('../utils/token')
+
+const isAuth = require('../middlewares/auth')
+
+const encryt = require('../utils/encryptPass')
+
+const models = require('../models')
 
 const Merror = MerrorModule.Merror;
 
 const router = express.Router();
+
+
 
 router.get('/', (req, res, next) => {
   console.log(req.params)
@@ -27,10 +36,11 @@ router.get('/', (req, res, next) => {
 })
 
 
-router.get('/test', bodyJson, (req, res, next ) => {
+router.get('/test',  (req, res, next ) => {
+
   let data = req.params.body || 'no data disponible';
-  console.log( req.params )
-  res.send(data);
+  console.log( req.query, req.headers )
+  res.send( req.query );
 })
 
 router.get('/modulos', (req, res, next ) => {
@@ -100,9 +110,66 @@ router.get('/ranking', (req, res, next ) => {
 })
 
 
+router.get('/profile', isAuth, (req, res ) =>{
+   res.status(200).json({ message: 'ya tienes acceso'})
+})
+
+
+router.post('/signup', (req, res, next) => {  
+  
+  Create.crearUsuario(req.body.nombre, req.body.email, req.body.password)
+  .then( user => {
+    
+    if(!user.error){
+      res.status(200).json({ 
+        message: 'registro exitoso',
+        token: token.createToken(user)
+      })      
+    }else{
+      res.status(300).json({ message: 'usuario ya existe'})
+    }
+
+  })
+  
+
+  
+})
+
+router.post('/signIn', (req, res, next) => {
+    let email = req.body.email || ''
+    let password = req.body.password || ''
+
+    if(! email &&  !password){
+        res.status(301).json({ message: ' datos vacios, ingrese datos validos'})
+    }
+
+    models.Usuario.findOne({
+      where:{
+        email,
+        password: encryt.encrypt(password)
+      }
+    })
+
+    .then( data => {
+        console.info('consulta exitosa ' ,data)
+        res.status(200).json({
+          message: 'logeado exitosamente',
+          token: token.createToken(data) 
+        })
+    })
+
+    .catch( error => {
+       console.error('error en la consulta' ,error)
+
+       res.status(501).json({ message: 'error al realizar consulta'})
+    })
+})
+
+
+
 router.use( (req, res, next) => {
 
-  return next(new Merror(404, 'Ruta no encontrada',{ description: 'Can not find this link'}) )
+  return next(new Merror(404, 'Ruta no encontrada',{ description: `nose puede encontrar la ruta ${req.url}`}) )
 
 })
 module.exports = router;
