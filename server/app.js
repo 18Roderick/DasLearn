@@ -6,8 +6,6 @@ const compression = require('compression')
 
 const helmet = require('helmet')
 
-const cors = require('cors')
-
 const MerrorModule = require('express-merror');
 
 const bodyParser = require('body-parser')
@@ -27,19 +25,13 @@ app.set('port', port)
 
 app.use(morgan('common'))
 
-app.use(cors({
-	origin: ["http://localhost:3001/api"],
-	methods: ["GET", "POST"],
-	allowedHeaders: ["Content-Type", "Authorization"]
-}))
-
 app.use(helmet())
 
 app.use(compression())
 
 app.use(bodyParser.urlencoded({ extended: false }))
 
-//app.use(bodyParser.json())
+app.use(bodyParser.json())
 
 app.use('/', indexRoute)
 
