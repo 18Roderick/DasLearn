@@ -10,7 +10,10 @@ class Jugar extends Component{
 
     componentDidMount(){
       fetchModulos()
-        .then( data => this.setState(data))
+        .then( data => {
+          console.log(data)
+          this.setState(data)
+        })
     }
 
     render() {
@@ -25,9 +28,9 @@ class Jugar extends Component{
             {
               data.map( item => {
                 return <div className="jugarItems" key={ item.id }>
-                    <h2> { item.titulo }</h2>
-                    <p> { item.descripcion }</p>
-                </div>
+                          <h2> { item.titulo }</h2>
+                          <p> { item.descripcion }</p>
+                      </div>
               })
             }
         </div>

@@ -135,10 +135,10 @@ router.post('/signup', (req, res, next) => {
   
 })
 
-router.post('/signIn', (req, res, next) => {
+router.post('/signin', (req, res, next) => {
     let email = req.body.email || ''
     let password = req.body.password || ''
-
+    console.log(req.body, req.query, req.params)
     if(! email &&  !password){
         res.status(301).json({ message: ' datos vacios, ingrese datos validos'})
     }
@@ -151,7 +151,7 @@ router.post('/signIn', (req, res, next) => {
     })
 
     .then( data => {
-        console.info('consulta exitosa ' ,data)
+        console.info('consulta exitosa ')
         res.status(200).json({
           message: 'logeado exitosamente',
           token: token.createToken(data) 

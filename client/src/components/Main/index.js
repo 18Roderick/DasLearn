@@ -6,6 +6,9 @@ import Jugar from '../Jugar';
 import Ranking from '../Ranking';
 import Tutorial from '../Tutorial';
 import Error404 from '../Page404';
+import Singnin from '../Signin';
+import NoAuth from '../NoAuth';
+
 
 class Main extends Component {
    render() {
@@ -16,6 +19,7 @@ class Main extends Component {
           <Route path='/jugar' component={ Jugar }/>
           <Route path='/tutorial' component={ Tutorial }/>
           <Route path='/ranking' component={ Ranking }/>
+          <Route path='/login' component={ Singnin }/>
           <Route  component={ Error404 }/>
         </Switch>
      );

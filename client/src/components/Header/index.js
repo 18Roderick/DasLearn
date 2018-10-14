@@ -15,7 +15,7 @@ class Header extends Component {
          <Link to='/tutorial'>  Tutorial   </Link>
          <Link to='/ranking'>  Ranking  </Link>
          <div className="left-nav">
-           <Link to=''> Login </Link>
+           <Link to='/login'> Login </Link>
          </div>
        </div>
      );
