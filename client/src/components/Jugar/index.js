@@ -11,7 +11,7 @@ class Jugar extends Component{
     componentDidMount(){
       fetchModulos()
         .then( data => {
-          console.log(data)
+          //console.log(data)
           this.setState(data)
         })
     }

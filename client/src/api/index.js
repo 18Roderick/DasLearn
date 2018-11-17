@@ -8,4 +8,3 @@ export const fetchModulos = async (url, options) => {
     return error
   }
 }
-

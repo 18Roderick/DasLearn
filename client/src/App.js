@@ -1,22 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 import './App.css';
-import routes from './config/routes.json';
 import Main from './components/Main';
 import Header from './components/Header';
 
 class App extends Component {
   render() {
     return (
-      <div >
+      <div>
         <Header></Header>
-        <Main></Main>
+        <Main authorization={this.props.authorization}></Main>
       </div>
     );
   }
 
   componentDidMount(){
-    console.log(routes);
+    
   }
 }
 
-export default App;
+const mapSateToProps = state => ({
+  authorization: state.authorization,
+})
+
+export default withRouter(connect(mapSateToProps,null)(App));

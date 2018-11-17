@@ -138,7 +138,7 @@ router.post('/signup', (req, res, next) => {
 router.post('/signin', (req, res, next) => {
     let email = req.body.email || ''
     let password = req.body.password || ''
-    console.log(req.body, req.query, req.params)
+    console.log(req.body, req.query, req.params, req.headers)
     if(! email &&  !password){
         res.status(301).json({ message: ' datos vacios, ingrese datos validos'})
     }
@@ -161,7 +161,7 @@ router.post('/signin', (req, res, next) => {
     .catch( error => {
        console.error('error en la consulta' ,error)
 
-       res.status(501).json({ message: 'error al realizar consulta'})
+       res.status(401).json({ message: 'error al realizar consulta'})
     })
 })
 
